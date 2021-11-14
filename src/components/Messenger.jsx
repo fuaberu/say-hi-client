@@ -10,7 +10,6 @@ const Messenger = ({
 	setMessage,
 	conversationId,
 	reciverUserId,
-	setOnline,
 }) => {
 	const [displayMessages, setDisplayMessages] = useState();
 	const [newMessage, setNewMessage] = useState('');
@@ -19,9 +18,7 @@ const Messenger = ({
 
 	//update with socket.io
 	useEffect(() => {
-		ioUpdate.current = io(
-			'ws://say-hi-api.herokuapp.herokuapp.com/socket.io/?EIO=4&transport=websocket'
-		);
+		ioUpdate.current = io(window.location.hostname);
 		ioUpdate.current.on('getMessage', (data) => {
 			setIoReciveMessage({
 				sender: data.senderId,
