@@ -1,7 +1,7 @@
 export const loginCall = async (userCredentials, dispatch) => {
 	dispatch({ type: 'LOGIN_START' });
 	try {
-		await fetch('auth/login', {
+		await fetch('https://say-hi-api.herokuapp.com/api/auth/login', {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
@@ -28,7 +28,7 @@ export const loginCall = async (userCredentials, dispatch) => {
 export const register = async (userCredentials, dispatch) => {
 	dispatch({ type: 'LOGIN_START' });
 	try {
-		await fetch('auth/register', {
+		await fetch('https://say-hi-api.herokuapp.com/api/auth/register', {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
@@ -52,7 +52,7 @@ export const register = async (userCredentials, dispatch) => {
 //get a user conversations
 export const userConversations = async (userId, setConversations) => {
 	try {
-		await fetch(`conversations/${userId}`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/conversations/${userId}`, {
 			method: 'GET',
 			mode: 'cors',
 		})
@@ -68,7 +68,7 @@ export const userConversations = async (userId, setConversations) => {
 //get a user by id
 export const getUser = async (userId, setUser) => {
 	try {
-		await fetch(`users?userId=${userId}`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/users?userId=${userId}`, {
 			method: 'GET',
 			mode: 'cors',
 		})
@@ -84,7 +84,7 @@ export const getUser = async (userId, setUser) => {
 //get a user by username
 export const getUserByUsername = async (username, setUser) => {
 	try {
-		await fetch(`users?username=${username}`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/users?username=${username}`, {
 			method: 'GET',
 			mode: 'cors',
 		})
@@ -100,7 +100,7 @@ export const getUserByUsername = async (username, setUser) => {
 //update user profile photo
 export const updateProfilePic = async (userId, imageUrl, dispatch) => {
 	try {
-		await fetch('users/picture', {
+		await fetch('https://say-hi-api.herokuapp.com/api/users/picture', {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
@@ -125,10 +125,13 @@ export const updateProfilePic = async (userId, imageUrl, dispatch) => {
 export const getAllUsers = async (username, currentuser, setList) => {
 	console.log(currentuser, username);
 	try {
-		await fetch(`users/all?username=${username}&currentuser=${currentuser}`, {
-			method: 'GET',
-			mode: 'cors',
-		})
+		await fetch(
+			`https://say-hi-api.herokuapp.com/api/users/all?username=${username}&currentuser=${currentuser}`,
+			{
+				method: 'GET',
+				mode: 'cors',
+			}
+		)
 			.then((response) => response.json())
 			.then((data) => {
 				setList(data);
@@ -141,7 +144,7 @@ export const getAllUsers = async (username, currentuser, setList) => {
 //get messages
 export const getMessages = async (conversationId, setMessages) => {
 	try {
-		await fetch(`messages/${conversationId}`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/messages/${conversationId}`, {
 			method: 'GET',
 			mode: 'cors',
 		})
@@ -157,7 +160,7 @@ export const getMessages = async (conversationId, setMessages) => {
 //get latest message
 export const getLatestMessage = async (conversationId, setMessage) => {
 	try {
-		await fetch(`messages/last/${conversationId}`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/messages/last/${conversationId}`, {
 			method: 'GET',
 			mode: 'cors',
 		})
@@ -173,7 +176,7 @@ export const getLatestMessage = async (conversationId, setMessage) => {
 //send Messages
 export const sendMessage = async (message, setMessages) => {
 	try {
-		await fetch(`messages`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/messages`, {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
@@ -201,7 +204,7 @@ export const startConversation = async (
 	setCurrentChat
 ) => {
 	try {
-		await fetch(`conversations`, {
+		await fetch(`https://say-hi-api.herokuapp.com/api/conversations`, {
 			method: 'POST',
 			mode: 'cors',
 			headers: {
