@@ -18,7 +18,7 @@ const Messenger = ({
 
 	//update with socket.io
 	useEffect(() => {
-		ioUpdate.current = io(window.location.hostname);
+		ioUpdate.current = io('ws://say-hi-api.herokuapp');
 		ioUpdate.current.on('getMessage', (data) => {
 			setIoReciveMessage({
 				sender: data.senderId,
