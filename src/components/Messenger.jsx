@@ -60,13 +60,15 @@ const Messenger = ({
 			text: newMessage,
 		};
 		sendMessage(messageObj, setMessage);
-		setNewMessage('');
 		//send message to socket.io
 		ioUpdate.current.emit('sendMessage', {
 			senderId: currentUserId,
 			reciverId: reciverUserId,
 			text: newMessage,
 		});
+
+		//clean the message input
+		setNewMessage('');
 	};
 	return (
 		<Container>
