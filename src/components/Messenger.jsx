@@ -49,7 +49,7 @@ const Messenger = ({
 	//set messages to display
 	useEffect(() => {
 		setDisplayMessages(messages);
-	}, [messages]);
+	}, []);
 
 	//submit new message
 	const handleSubmit = (e) => {
