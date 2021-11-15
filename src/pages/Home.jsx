@@ -94,7 +94,7 @@ const Home = () => {
 						/>
 					)}
 				</InnerLeft>
-				<LeftContent style={showConversations ? {} : { left: 'calc(-80vw + 50px)' }}>
+				<LeftContent style={showConversations ? {} : { left: 'calc(-80vw + 100px)' }}>
 					<div>
 						<Headline>
 							Say<span>Hi</span>
@@ -121,10 +121,29 @@ const Home = () => {
 				</LeftContent>
 			</Left>
 			{isFetching ? <Spinner /> : null}
+
 			<LeftOpenBtn
 				style={showConversations ? {} : { left: '50px' }}
 				onClick={() => setShowConversations(!showConversations)}
-			></LeftOpenBtn>
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172">
+					<g
+						fill="none"
+						stroke-miterlimit="10"
+						font-family="none"
+						font-size="none"
+						font-weight="none"
+						text-anchor="none"
+						transform={showConversations ? 'rotate(180, 83,86)' : ''}
+					>
+						<path d="M0 172V0h172v172z" />
+						<g fill="#14cc60">
+							<path d="m157.66667 86-57.33333 50.16667V35.83334z" />
+							<path d="M14.33333 68.08333H107.5v35.83333H14.33333z" />
+						</g>
+					</g>
+				</svg>
+			</LeftOpenBtn>
 			<Right>
 				{currentChat ? (
 					<Messenger
@@ -176,16 +195,18 @@ const Left = styled.section`
 	}
 `;
 const LeftOpenBtn = styled.div`
-	height: 75px;
-	width: 37px;
+	height: 50px;
+	width: 22px;
 	border-radius: 0 75px 75px 0;
-	background-color: red;
+	background-color: #23acd6;
 	position: absolute;
-	left: calc(80vw + 50px);
+	left: calc(80vw);
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
-	transition: ease-in 1s;
+	display: flex;
+	align-items: center;
+	transition: ease-in 0.7s;
 	@media screen and (min-width: 751px) {
 		display: none;
 	}
@@ -231,16 +252,20 @@ const LeftContent = styled.div`
 	background-color: #23acd6;
 	min-width: 300px;
 	height: 100vh;
-	transition: ease-in 1s;
+	transition: ease-in 0.7s;
 	@media screen and (max-width: 750px) {
 		position: absolute;
-		width: 80vw;
+		min-width: calc(80vw - 50px);
+		width: calc(80vw - 50px);
 		left: 50px;
+		top: 0;
+		bottom: 0;
 	}
 `;
 const Right = styled.section`
 	width: 100%;
 	min-height: 100vh;
+	text-align: center;
 `;
 
 export default Home;

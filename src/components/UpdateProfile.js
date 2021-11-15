@@ -90,7 +90,7 @@ const Container = styled.div`
 	form {
 		z-index: 1;
 		height: 250px;
-		width: 40vw;
+		width: 60vw;
 		max-width: 350px;
 		padding: 1rem;
 		border-radius: 7px;
