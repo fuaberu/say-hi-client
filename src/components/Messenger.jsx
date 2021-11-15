@@ -32,6 +32,7 @@ const Messenger = ({
 		ioReciveMessage &&
 			reciverUserId === ioReciveMessage.sender &&
 			setMessage((prev) => [...prev, ioReciveMessage]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ioReciveMessage, reciverUserId]);
 
 	useEffect(() => {
