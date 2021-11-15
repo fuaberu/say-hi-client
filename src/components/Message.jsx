@@ -68,6 +68,7 @@ const Container = styled.div`
 			word-wrap: break-word;
 			white-space: pre-wrap;
 			word-break: break-word;
+			text-align: initial;
 		}
 	}
 	width: 100%;
