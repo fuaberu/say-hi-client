@@ -31,7 +31,7 @@ const Messenger = ({
 	useEffect(() => {
 		ioReciveMessage &&
 			reciverUserId === ioReciveMessage.sender &&
-			setDisplayMessages((prev) => [...prev, ioReciveMessage]);
+			setMessage((prev) => [...prev, ioReciveMessage]);
 	}, [ioReciveMessage, reciverUserId]);
 
 	useEffect(() => {
@@ -49,8 +49,7 @@ const Messenger = ({
 	//set messages to display
 	useEffect(() => {
 		setDisplayMessages(messages);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [messages]);
 
 	//submit new message
 	const handleSubmit = (e) => {
