@@ -4,13 +4,7 @@ import { sendMessage } from '../apiCalls';
 import Message from './Message';
 import { io } from 'socket.io-client';
 
-const Messenger = ({
-	messages,
-	currentUserId,
-	setMessage,
-	conversationId,
-	reciverUserId,
-}) => {
+const Messenger = ({ messages, currentUserId, conversationId, reciverUserId }) => {
 	const [displayMessages, setDisplayMessages] = useState();
 	const [newMessage, setNewMessage] = useState('');
 	const [ioReciveMessage, setIoReciveMessage] = useState(null);
@@ -31,7 +25,7 @@ const Messenger = ({
 	useEffect(() => {
 		ioReciveMessage &&
 			reciverUserId === ioReciveMessage.sender &&
-			setMessage((prev) => [...prev, ioReciveMessage]);
+			setDisplayMessages((prev) => [...prev, ioReciveMessage]);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ioReciveMessage, reciverUserId]);
 
@@ -60,7 +54,7 @@ const Messenger = ({
 			sender: currentUserId,
 			text: newMessage,
 		};
-		sendMessage(messageObj, setMessage);
+		sendMessage(messageObj, setDisplayMessages);
 		//send message to socket.io
 		ioUpdate.current.emit('sendMessage', {
 			senderId: currentUserId,

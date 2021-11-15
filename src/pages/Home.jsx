@@ -149,7 +149,6 @@ const Home = () => {
 					<Messenger
 						messages={currentMessages}
 						currentUserId={user._id}
-						setMessage={setCurrentMessages}
 						conversationId={currentChat}
 						reciverUserId={reciverUserId}
 					/>
