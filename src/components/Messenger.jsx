@@ -49,6 +49,7 @@ const Messenger = ({
 	//set messages to display
 	useEffect(() => {
 		setDisplayMessages(messages);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	//submit new message
