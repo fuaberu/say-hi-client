@@ -44,7 +44,7 @@ const Message = ({ right, text, time, username, userId }) => {
 					<p>{text}</p>
 				</TextContainer>
 			</div>
-			<span>{format(time)}</span>
+			<span style={right ? {} : { textAlign: 'left' }}>{format(time)}</span>
 		</Container>
 	);
 };
