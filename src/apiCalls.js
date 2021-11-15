@@ -113,7 +113,6 @@ export const updateProfilePic = async (userId, imageUrl, dispatch) => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				dispatch({ type: 'PROFILE_PIC_UPDATED', payload: data });
 			});
 	} catch (err) {
@@ -123,7 +122,6 @@ export const updateProfilePic = async (userId, imageUrl, dispatch) => {
 
 //get all users
 export const getAllUsers = async (username, currentuser, setList) => {
-	console.log(currentuser, username);
 	try {
 		await fetch(
 			`https://say-hi-api.herokuapp.com/api/users/all?username=${username}&currentuser=${currentuser}`,

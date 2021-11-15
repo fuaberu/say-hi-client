@@ -7,9 +7,7 @@ const UpdateProfile = ({ user, dispatch, onClick, isFetching }) => {
 	const [imageFile, setImageFile] = useState();
 	const [image, setImage] = useState();
 
-	useEffect(() => {
-		console.log(isFetching);
-	}, [isFetching]);
+	useEffect(() => {}, [isFetching]);
 
 	const uploadMedia = async (e) => {
 		const target = e.target;
@@ -37,8 +35,6 @@ const UpdateProfile = ({ user, dispatch, onClick, isFetching }) => {
 
 		//update profilepicture in mongoDB
 		await updateProfilePic(user._id, url, dispatch);
-
-		console.log(isFetching);
 	};
 
 	return (
