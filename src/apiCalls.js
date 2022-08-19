@@ -51,6 +51,7 @@ export const userConversations = async (userId, setConversations) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/conversations/${userId}`, {
 			method: 'GET',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -67,6 +68,7 @@ export const getUser = async (userId, setUser) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/users?userId=${userId}`, {
 			method: 'GET',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -83,6 +85,7 @@ export const getUserByUsername = async (username, setUser) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/users?username=${username}`, {
 			method: 'GET',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -99,9 +102,7 @@ export const updateProfilePic = async (userId, imageUrl, dispatch) => {
 		await fetch('https://say-hi-api.herokuapp.com/api/users/picture', {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers:"Access-Control-Allow-Origin: *",
 			body: JSON.stringify({
 				userId,
 				imageUrl,
@@ -124,6 +125,7 @@ export const getAllUsers = async (username, currentuser, setList) => {
 			{
 				method: 'GET',
 				mode: 'cors',
+				headers:"Access-Control-Allow-Origin: *",
 			}
 		)
 			.then((response) => response.json())
@@ -141,6 +143,7 @@ export const getMessages = async (conversationId, setMessages) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/messages/${conversationId}`, {
 			method: 'GET',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -157,6 +160,7 @@ export const getLatestMessage = async (conversationId, setMessage) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/messages/last/${conversationId}`, {
 			method: 'GET',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -173,9 +177,7 @@ export const sendMessage = async (message, setMessages) => {
 		await fetch(`https://say-hi-api.herokuapp.com/api/messages`, {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers:"Access-Control-Allow-Origin: *",
 			body: JSON.stringify({
 				conversationId: message.conversationId,
 				sender: message.sender,
@@ -201,9 +203,7 @@ export const startConversation = async (
 		await fetch(`https://say-hi-api.herokuapp.com/api/conversations`, {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
+			headers:"Access-Control-Allow-Origin: *",
 			body: JSON.stringify({
 				senderId: conversation.senderId,
 				reciverId: conversation.reciverId,
