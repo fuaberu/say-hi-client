@@ -4,9 +4,6 @@ export const loginCall = async (userCredentials, dispatch) => {
 		await fetch('https://say-hi-api.herokuapp.com/api/auth/login', {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
 			body: JSON.stringify({
 				email: userCredentials.email,
 				password: userCredentials.password,
@@ -31,9 +28,6 @@ export const register = async (userCredentials, dispatch) => {
 		await fetch('https://say-hi-api.herokuapp.com/api/auth/register', {
 			method: 'POST',
 			mode: 'cors',
-			headers: {
-				'Content-Type': 'application/json',
-			},
 			body: JSON.stringify({
 				email: userCredentials.email,
 				username: userCredentials.username,
