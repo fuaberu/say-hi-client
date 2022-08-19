@@ -4,6 +4,7 @@ export const loginCall = async (userCredentials, dispatch) => {
 		await fetch('https://say-hi-api.herokuapp.com/api/auth/login', {
 			method: 'POST',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 			body: JSON.stringify({
 				email: userCredentials.email,
 				password: userCredentials.password,
@@ -17,8 +18,8 @@ export const loginCall = async (userCredentials, dispatch) => {
 					dispatch({ type: 'LOGIN_SUCCESS', payload: data });
 				}
 			});
-	} catch (err) {
-		dispatch({ type: 'LOGIN_FAILURE', payload: err });
+		} catch (err) {
+			dispatch({ type: 'LOGIN_FAILURE', payload: err });
 	}
 };
 
@@ -28,6 +29,7 @@ export const register = async (userCredentials, dispatch) => {
 		await fetch('https://say-hi-api.herokuapp.com/api/auth/register', {
 			method: 'POST',
 			mode: 'cors',
+			headers:"Access-Control-Allow-Origin: *",
 			body: JSON.stringify({
 				email: userCredentials.email,
 				username: userCredentials.username,
